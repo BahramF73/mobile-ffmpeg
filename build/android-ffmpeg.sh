@@ -357,6 +357,12 @@ ${SED_INLINE} 's/static int av_log_level/__thread int av_log_level/g' ${BASEDIR}
 ###################################################################
 
 ./configure \
+    --disable-everything \
+    --enable-decoder=bmp,jpeg2000,jpegls,mjpeg,mjpegb,smvjpeg,mpeg4 \
+    --enable-demuxer=bmp,jpeg2000,jpegls,mjpeg,mjpegb,smvjpeg,mpeg4 \
+    --enable-muxer=mp4 \
+    --enable-protocol=file \
+    --enable-encoder=mpeg4 \
     --cross-prefix="${BUILD_HOST}-" \
     --sysroot="${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/${TOOLCHAIN}/sysroot" \
     --prefix="${BASEDIR}/prebuilt/android-$(get_target_build)/${LIB_NAME}" \
